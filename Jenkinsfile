@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'https://hub.docker.com/repository/docker/dharshangk/portfolio/tags'  // Replace with your DockerHub repo
+        IMAGE_NAME = 'dharshangk/portfolio'  // Replace with your actual DockerHub repo name
     }
 
     stages {
@@ -34,7 +34,9 @@ pipeline {
         stage('Deploy Container') {
             steps {
                 script {
-                    sh 'docker run -d -p 8000:8000 --name portfolio $IMAGE_NAME'
+                    sh 'docker stop portfolio || true'  // Stop if running
+                    sh 'docker rm portfolio || true'   // Remove if exists
+                    sh 'docker run -d -p 9000:9000 --name portfolio $IMAGE_NAME'
                 }
             }
         }
