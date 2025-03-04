@@ -1,3 +1,4 @@
+HEAD
 # Ignore compiled and cache files
 __pycache__/
 *.pyc
@@ -15,3 +16,11 @@ db.sqlite3
 
 # Ignore environment variables (if any)
 .env
+
+__pycache__/
+*.pyc
+*.pyo
+*.db
+.env
+/staticfiles/
+master
