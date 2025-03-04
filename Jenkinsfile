@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = 'your-dockerhub-username/portfolio'  // Replace with your DockerHub repo
+        IMAGE_NAME = 'https://hub.docker.com/repository/docker/dharshangk/portfolio/tags'  // Replace with your DockerHub repo
     }
 
     stages {
