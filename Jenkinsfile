@@ -1,19 +1,41 @@
 pipeline {
     agent any
+
+    environment {
+        IMAGE_NAME = 'your-dockerhub-username/portfolio'  // Replace with your DockerHub repo
+    }
+
     stages {
-        stage('Checkout') {
+        stage('Clone Repository') {
             steps {
-                git 'https://github.com/GKDHARSHAN/jenkins-k8s-setup.git'
+                git branch: 'main', url: 'https://github.com/GKDHARSHAN/jenkins-k8s-setup.git'
             }
         }
-        stage('Build') {
+
+        stage('Build Docker Image') {
             steps {
-                echo 'Building...'
+                script {
+                    sh 'docker build -t $IMAGE_NAME .'
+                }
             }
         }
-        stage('Deploy') {
+
+        stage('Push to DockerHub') {
             steps {
-                echo 'Deploying...'
+                withCredentials([string(credentialsId: 'dockerhub-credentials', variable: 'DOCKER_PASSWORD')]) {
+                    script {
+                        sh 'echo $DOCKER_PASSWORD | docker login -u your-dockerhub-username --password-stdin'
+                        sh 'docker push $IMAGE_NAME'
+                    }
+                }
+            }
+        }
+
+        stage('Deploy Container') {
+            steps {
+                script {
+                    sh 'docker run -d -p 8000:8000 --name portfolio $IMAGE_NAME'
+                }
             }
         }
     }
