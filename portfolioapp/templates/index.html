@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+     <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand" href="#">My Portfolio</a>
+        <button class="navbar-toggler"
+         type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="jumbotron text-center text-white bg-primary">
+        <h1 class="display-4">Welcome to My Portfolio</h1>
+        <p class="lead">I'm a web developer with a passion for creating beautiful and functional websites.</p>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="{% static 'profile.jpg' %}" alt="Profile Picture" class="img-fluid rounded-circle">
+            </div>
+            <div class="col-md-6">
+                <h2>About Me</h2>
+                <p>Hello! I'm a web developer with a passion for creating beautiful and functional websites. I have experience in various web technologies and a keen eye for design.</p>
+                <p>With a strong foundation in both front-end and back-end development, I strive to build seamless user experiences. When I'm not coding, you can find me exploring new technologies, reading tech blogs, or enjoying outdoor activities.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center">Skills</h2>
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <i class="fab fa-html5 fa-4x mb-2"></i>
+                    <h4>HTML5</h4>
+                </div>
+                <div class="col-md-3">
+                    <i class="fab fa-css3-alt fa-4x mb-2"></i>
+                    <h4>CSS3</h4>
+                </div>
+                <div class="col-md-3">
+                    <i class="fab fa-js fa-4x mb-2"></i>
+                    <h4>JavaScript</h4>
+                </div>
+                <div class="col-md-3">
+                    <i class="fab fa-python fa-4x mb-2"></i>
+                    <h4>Python</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="container my-5">
+        <h2 class="text-center">Projects</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{% static 'OIF.jpeg' %}" class="card-img-top" alt="Project 1">
+                    <div class="card-body">
+                        <h5 class="card-title">speech emotion recognition</h5>
+                        <p class="card-text">speech emotion recognition using the revdass dataset </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{% static 'hospital_management_system.webp' %}" class="card-img-top" alt="Project 2">
+                    <div class="card-body">
+                        <h5 class="card-title">hospital management system</h5>
+                        <p class="card-text">database for the hospital</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="{% static '635678883236263123-XXX-GAN-TECH-GAMES-012314-5.webp' %}" class="card-img-top" alt="Project 3">
+                    <div class="card-body">
+                        <h5 class="card-title">pacman game</h5>
+                        <p class="card-text">pacman game in c using opengl</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center">Contact</h2>
+            <form id="contact-form" class="col-md-8 offset-md-2">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" class="form-control" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4">
+        <p>&copy; 2024 My Portfolio</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>
